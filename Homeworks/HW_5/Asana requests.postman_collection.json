@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "ab562b10-07e3-4f4e-b79d-726b089738f5",
+		"name": "Asana requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Portfolio",
+			"item": [
+				{
+					"name": "Create a portfolio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"color\": \"light-green\",\n    \"name\": \"My First Portfolio\",\n    \"workspace\": \"1198751938693177\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/portfolios",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"portfolios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a portfolio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"color\": \"light-blue\",\n    \"name\": \"My First Portfolio Is Updated\",\n    \"workspace\": \"1198751938693177\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/portfolios/{{portfolio_gid}}",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"portfolios",
+								"{{portfolio_gid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a portfolio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{asana_url}}/portfolios/{{portfolio_gid}}",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"portfolios",
+								"{{portfolio_gid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1/1198862004851113:29be5e12381a0a5d791fb2cd7e4bde78",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create a task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"assignee\": \"1198862004851113\",\n    \"name\": \"New Task For Me\",\n    \"workspace\": \"1198751938693177\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/tasks",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n  \t\"assignee\": \"1198862004851113\",\n    \"name\": \"First New Task For Me\",\n    \"workspace\": \"1198751938693177\",\n    \"notes\": \"Sometimes first task is very hard to do\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/tasks/{{task_gid}}",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_gid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{asana_url}}/tasks/{{task_gid}}",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"tasks",
+								"{{task_gid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1/1198862004851113:29be5e12381a0a5d791fb2cd7e4bde78",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Workspace",
+			"item": [
+				{
+					"name": "Get my workspaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{asana_url}}/workspaces",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a workspace",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"My Own Workspace\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/workspaces/{{workspace_gid}}",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_gid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a user to a workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"user\": \"1198862004851113\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{asana_url}}/workspaces/{{workspace_gid}}/addUser",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_gid}}",
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a workspace membership",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{asana_url}}/workspaces/{{workspace_gid}}/workspace_memberships",
+							"host": [
+								"{{asana_url}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_gid}}",
+								"workspace_memberships"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1/1198862004851113:29be5e12381a0a5d791fb2cd7e4bde78",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ec33cac3-f864-4db6-af68-e2e28c3e6540",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e48fd918-7d78-4d90-9c98-29f9c2c60930",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1/1198862004851113:29be5e12381a0a5d791fb2cd7e4bde78",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fd0ed061-f6ef-48d5-a86c-74513f00feaa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "929d2508-9224-44f8-a027-2096f98a5077",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
